@@ -1,11 +1,8 @@
+import LocationSearch from "./components/LocationSearch";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+      <LocationSearch />
     </div>
   );
 }
