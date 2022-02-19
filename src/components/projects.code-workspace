@@ -5,6 +5,9 @@
     },
     {
       "path": "../../../test-spotify"
+    },
+    {
+      "path": "../../../tdlist-with-api"
     }
   ],
   "settings": {}
