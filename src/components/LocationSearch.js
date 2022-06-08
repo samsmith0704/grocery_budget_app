@@ -3,9 +3,10 @@
  */
 import React from "react";
 import { useState } from "react";
-import Store from "./Store";
+import StoreHeader from "./StoreHeader";
 import { headers } from "../request_config";
 import { topNav } from "../Styles";
+import { Outlet } from "react-router-dom";
 
 const searchStoreByZip = async (zip_code) => {
   const response = await fetch(
@@ -43,11 +44,12 @@ const LocationSearch = () => {
         {output.map((store) => {
           return (
             <li>
-              <Store storeName={store} />
+              <StoreHeader storeName={store} />
             </li>
           );
         })}
       </div>
+      <Outlet />
     </div>
   );
 };
