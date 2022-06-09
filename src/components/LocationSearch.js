@@ -23,9 +23,9 @@ const searchStoreByZip = async (zip_code) => {
 
 const LocationSearch = () => {
   const [output, setOutput] = useState([]);
+  const searchTerm = document.getElementById("myInput").value;
 
   const onSubmit = async () => {
-    const searchTerm = document.getElementById("myInput").value;
     let result = await searchStoreByZip(searchTerm);
     const newOutput = [];
     console.log(result.data);
@@ -49,6 +49,8 @@ const LocationSearch = () => {
           );
         })}
       </div>
+      <br />
+      <br />
       <Outlet />
     </div>
   );

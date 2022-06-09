@@ -10,8 +10,16 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="store" element={<Store />} />
+        <Route path=":storeName" element={<Store />} />
       </Route>
+      <Route
+        path="*"
+        element={
+          <main style={{ padding: "1rem" }}>
+            <p>There's nothing here!</p>
+          </main>
+        }
+      />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")

@@ -32,7 +32,9 @@ const StoreHeader = ({ storeName }) => {
   };
   return (
     <div onMouseEnter={changeHover} onMouseLeave={changeHover}>
-      <Link to="/store">{storeName}</Link>
+      <Link style={navLinkStyle} to={`/${storeName}`} key={storeName}>
+        {storeName}
+      </Link>
     </div>
   );
 };
