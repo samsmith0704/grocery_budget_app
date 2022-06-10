@@ -11,7 +11,7 @@ const Store = () => {
   const getProducts = () => {};
   return (
     <div>
-      <h2>Store Address: {params.storeName}</h2>
+      <h2>Store ID: {params.locationId}</h2>
     </div>
   );
 };

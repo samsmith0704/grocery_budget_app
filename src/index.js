@@ -10,7 +10,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path=":storeName" element={<Store />} />
+        <Route path=":locationId" element={<Store />} />
       </Route>
       <Route
         path="*"

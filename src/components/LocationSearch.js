@@ -23,28 +23,32 @@ const searchStoreByZip = async (zip_code) => {
 
 const LocationSearch = () => {
   const [output, setOutput] = useState([]);
-  const searchTerm = document.getElementById("myInput").value;
 
   const onSubmit = async () => {
+    const searchTerm = document.getElementById("myInput")?.value;
+
     let result = await searchStoreByZip(searchTerm);
     const newOutput = [];
-    console.log(result.data);
+
     for (let i = 0; i < result.data.length; i++) {
-      newOutput.push(result.data[i].address?.addressLine1);
+      let storeObj = {};
+      storeObj["name"] = result.data[i].address?.addressLine1;
+      storeObj["locationId"] = result.data[i].locationId;
+      newOutput.push(storeObj);
     }
 
     setOutput(newOutput);
   };
   return (
     <div>
-      <input id="myInput" type="text" />
+      <input id="myInput" type="text" defaultValue={"zip code"} />
       <input type="submit" value="Submit" onClick={onSubmit} />
       <br />
       <div style={topNav}>
         {output.map((store) => {
           return (
             <li>
-              <StoreHeader storeName={store} />
+              <StoreHeader store={store} />
             </li>
           );
         })}

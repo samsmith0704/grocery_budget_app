@@ -4,7 +4,7 @@
 import React from "react";
 import { headers } from "../request_config";
 import { Link, Outlet } from "react-router-dom";
-const StoreHeader = ({ storeName }) => {
+const StoreHeader = ({ store }) => {
   const [ishovered, setIsHovered] = React.useState(false);
 
   // const searchItem = async (itemName) => {
@@ -32,8 +32,12 @@ const StoreHeader = ({ storeName }) => {
   };
   return (
     <div onMouseEnter={changeHover} onMouseLeave={changeHover}>
-      <Link style={navLinkStyle} to={`/${storeName}`} key={storeName}>
-        {storeName}
+      <Link
+        style={navLinkStyle}
+        to={`/${store.locationId}`}
+        key={store.locationId}
+      >
+        {store.name}
       </Link>
     </div>
   );
