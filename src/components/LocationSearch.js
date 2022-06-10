@@ -41,7 +41,7 @@ const LocationSearch = () => {
   };
   return (
     <div>
-      <input id="myInput" type="text" defaultValue={"zip code"} />
+      <input id="myInput" type="text" placeholder="Enter your zip code..." />
       <input type="submit" value="Submit" onClick={onSubmit} />
       <br />
       <div style={topNav}>
