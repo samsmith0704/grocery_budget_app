@@ -5,8 +5,7 @@ import React from "react";
 import { headers } from "../request_config";
 import { Link, Outlet } from "react-router-dom";
 const StoreHeader = ({ store }) => {
-  const [ishovered, setIsHovered] = React.useState(false);
-
+  const [isHovered, setIsHovered] = React.useState(false);
   // const searchItem = async (itemName) => {
   //   const response = await fetch(
   //     `https://api.kroger.com/v1/locations?filter.zipCode.near=${zip_code}&filter.chain=Kroger`,
@@ -20,7 +19,7 @@ const StoreHeader = ({ store }) => {
   //   return myJson;
   // };
   const navLinkStyle = {
-    backgroundColor: ishovered ? "aqua" : "DarkSeaGreen",
+    backgroundColor: isHovered ? "aqua" : "DarkSeaGreen",
     float: "left",
     textAlign: "center",
     padding: "14px 16px",
@@ -28,8 +27,9 @@ const StoreHeader = ({ store }) => {
     fontSize: "17px",
   };
   const changeHover = () => {
-    setIsHovered(!ishovered);
+    setIsHovered(!isHovered);
   };
+
   return (
     <div onMouseEnter={changeHover} onMouseLeave={changeHover}>
       <Link
