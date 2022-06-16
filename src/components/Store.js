@@ -7,6 +7,7 @@ import ProductTable from "./ProductTable";
  * allow user to add product to their cart
  */
 const Store = () => {
+  const [productData, setProductData] = React.useState();
   let params = useParams();
 
   //now should be able to look up products at specific krogers
@@ -20,13 +21,13 @@ const Store = () => {
     );
     const myJson = await response.json();
 
-    console.log(myJson);
+    // console.log(myJson);
     return myJson;
   };
 
-  const generateProductTable = (category) => {
-    const productData = searchProducts(params.locationId, category);
-    return <ProductTable data={productData} />;
+  const generateProductData = async (category) => {
+    const newProductData = await searchProducts(params.locationId, category);
+    setProductData(newProductData);
   };
 
   return (
@@ -41,13 +42,12 @@ const Store = () => {
       {/* <button onClick={() => searchProducts(params.locationId)}>Click</button> */}
       <button
         onClick={() => {
-          generateProductTable(
-            document.getElementById("category_select").value
-          );
+          generateProductData(document.getElementById("category_select").value);
         }}
       >
         Click
       </button>
+      <ProductTable data={productData} />
     </div>
   );
 };
