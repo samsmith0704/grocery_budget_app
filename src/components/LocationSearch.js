@@ -7,6 +7,7 @@ import StoreHeader from "./StoreHeader";
 import { headers } from "../request_config";
 import { topNav } from "../Styles";
 import { Outlet } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
 const searchStoreByZip = async (zip_code) => {
   const response = await fetch(
